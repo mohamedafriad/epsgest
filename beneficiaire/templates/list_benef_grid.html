@@ -1,20 +1,33 @@
 {% extends  "base.html" %}
 {% load static %}
+{% block toolbar-items %}
+	{{ block.super }}
+	<a href="table/" class="nav-link nav-item btn btn-primary">
+		Affichage Table
+	</a>
+{% endblock %}
 {% block content %}
+{% if beneficiaires.count %}
 <div class="card-columns">
 {% for beneficiaire in beneficiaires %}
   <div class="card">
+  	<div class="card-header">
+  		<h3>{{ beneficiaire.prenom }} {{ beneficiaire.nom }}
+  			<span class="badge badge-pill badge-primary">{{ beneficiaire.id }}</span>
+  		</h3>
+  	</div>
     <img src={% static "beneficiaire/avatar1.jpg" %} class="card-img-top" alt="photo_ben" />
-    <div class="card-body">
-      <h5 class="card-title">{{ beneficiaire.pk }}</h5>
-      <p class="card-text">{{ beneficiaire.nom }} {{ beneficiaire.prenom }}</p>
-      <div class="card-footer">
-      	<a href="{{ beneficiaire.pk }}/" class="btn btn-outline-primary">Détails</a>
-		<a href="{{ beneficiaire.pk }}/editer/" class="btn btn-outline-success">Editer</a>
+    <div class="card-footer">
+     	<a href="{{ beneficiaire.pk }}/" class="btn btn-outline-primary">Détails</a>
+	 	<a href="{{ beneficiaire.pk }}/editer/" class="btn btn-outline-success">Editer</a>
 		<a href="{{ beneficiaire.pk }}/supprimer/" class="btn btn-outline-danger">Supprimer</a>
-      </div>
-    </div>
-   </div>
+     </div>
+  </div>
 {% endfor %}
 </div>
+{% else %}
+<p class="alert alert-danger">
+	Aucun bénéficiaire dans la base de données.veuillez en ajouter un.
+</p>
+{% endif %}
 {% endblock %}

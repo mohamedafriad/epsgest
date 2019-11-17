@@ -1,45 +1,49 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-<title>{% block title %}{% endblock %}</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
-<div class="navbar">
-<h2>EPS Gest</h2>
-<p>Application de Gestion des EPS.</p>
-</div>
-<div id="content">
-	<a href="../" class="btn btn-info">Retour</a>
+
 {% block content %}
 <div class="card-group">
   <div class="card">
+  	<div class="card-header">
+  		<h3 class="card-title">Gestion Bénéficiaires</h3>
+  	</div>
     <img src={% static "beneficiaire.jpg" %} class="card-img-top" alt="...">
     <div class="card-body">
-      <h3 class="card-title">Gestion Bénéficiaires</h3>
       <p class="card-text">Ce module permet la gestion des bénéficiaires de l'établissement</p>
-      <p class="card-text"><a href="/beneficiaire/" class="btn btn-outline-info">Accéder</a></p>
+    </div>
+    <div class="card-footer">
+      <p class="card-text">
+      	<a href="/beneficiaire/" class="btn btn-outline-info">Accéder</a>
+      </p>
     </div>
   </div>
   <div class="card">
-    <img src="" class="card-img-top" alt="...">
+  	<div class="card-header">
+  		<h3 class="card-title">Gestion Finance</h3>
+  	</div>
+    <img src={% static "beneficiaire.jpg" %} class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <p class="card-text">Ce module permet la gestion financière de l'établissement</p>
+    </div>
+    <div class="card-footer">
+      <p class="card-text">
+      	<a href="/beneficiaire/" class="btn btn-outline-info">Accéder</a>
+      </p>
     </div>
   </div>
   <div class="card">
-    <img src="" class="card-img-top" alt="...">
+  	<div class="card-header">
+  		<h3 class="card-title">Gestion Projets</h3>
+  	</div>
+    <img src={% static "beneficiaire.jpg" %} class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <p class="card-text">Ce module permet la gestion des projets de l'établissement</p>
+    </div>
+    <div class="card-footer">
+      <p class="card-text">
+      	<a href="/beneficiaire/" class="btn btn-outline-info">Accéder</a>
+      </p>
     </div>
   </div>
 </div>
 {% endblock %}
-</div>
-</body>
-</html>

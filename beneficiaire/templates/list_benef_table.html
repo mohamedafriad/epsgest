@@ -1,6 +1,13 @@
 {% extends  "base.html" %}
 {% load static %}
+{% block toolbar-items %}
+	{{ block.super }}
+	<a href=".." class="nav-link nav-item btn btn-primary">
+		Affichage Grid
+	</a>
+{% endblock %}
 {% block content %}
+{% if beneficiaires.count %}
 <table class="table table-bordered table-striped">
 	<thead class="thead-dark">
 		<tr>
@@ -13,16 +20,25 @@
 	<tbody>
 	{% for beneficiaire in beneficiaires %}
 		<tr>
-			<th scope="row">{{ beneficiaire.pk }}</th>
+			<th scope="row">{{ beneficiaire.id }}</th>
 			<td>{{ beneficiaire.nom }}</td>
 			<td>{{ beneficiaire.prenom }}</td>
 			<td>
-				<a href="{{ beneficiaire.pk }}/" class="btn btn-outline-primary">Détails</a>
-				<a href="{{ beneficiaire.pk }}/editer/" class="btn btn-outline-success">Editer</a>
-				<a href="{{ beneficiaire.pk }}/supprimer/" class="btn btn-outline-danger">Supprimer</a>
+				<a href="../{{ beneficiaire.id }}/" class="btn btn-outline-primary">Détails</a>
+				<a href="../{{ beneficiaire.id }}/editer/" class="btn btn-outline-success">Editer</a>
+				<a href="../{{ beneficiaire.pk }}/supprimer/" class="btn btn-outline-danger">Supprimer</a>
 			</td>
 		</tr>
+	{% empty %}
+		<p class="alert alert-danger">
+		Aucun bénéficiaire dans la base de données. veuillez en ajouter un.
+		</p>
 	{% endfor %}
 	</tbody>
 </table>
+{% else %}
+<p class="alert alert-danger">
+	Aucun bénéficiaire dans la base de données.veuillez en ajouter un.
+</p>
+{% endif %}
 {% endblock %}

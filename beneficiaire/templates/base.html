@@ -6,21 +6,16 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<div id="sidebar">
-<h2>EPS Gest</h2>
-<p>Application de Gestion des EPS.</p>
-</div>
-<div id="content">
-	<ul class="nav nav-pills">
-	{% block toolbar %}
-	<li class="nav-item">
-		<a href="../" class="nav-link btn btn-outline-info">Retour</a>
-	</li>
-	<li class="nav-item">
-		<a href="ajout/" class="nav-link btn btn-outline-success">Nouveau</a>
-	</li>
+{% block toolbar %}
+<nav class="navbar sticky-top navbar-light bg-primary">
+	<a class="navbar-brand" href="http://localhost:8000/">EPS Gest</a>
+	{% block toolbar-items %}
+		<a href="../" class="nav-link nav-item btn btn-primary">Retour</a>
+		<a href="ajout/" class="nav-link nav-item btn btn-primary">Nouveau</a>
 	{% endblock %}
-	</ul>
+</nav>
+{% endblock %}
+<div id="content">
 {% block content %}
 {% endblock %}
 </div>
