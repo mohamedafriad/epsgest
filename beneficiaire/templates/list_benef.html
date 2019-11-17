@@ -1,0 +1,27 @@
+{% extends  "base.html" %}
+{% block content %}
+<table class="table table-bordered table-striped">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">ID</th>
+			<th scope="col">Nom</th>
+			<th scope="col">Prénom</th>
+			<th scope="col">Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for beneficiaire in beneficiaires %}
+		<tr>
+			<th scope="row">{{ beneficiaire.pk }}</th>
+			<td>{{ beneficiaire.nom }}</td>
+			<td>{{ beneficiaire.prenom }}</td>
+			<td>
+				<a href="{{ beneficiaire.pk }}/" class="btn btn-outline-primary">Détails</a>
+				<a href="{{ beneficiaire.pk }}/editer/" class="btn btn-outline-success">Editer</a>
+				<a href="{{ beneficiaire.pk }}/supprimer/" class="btn btn-outline-danger">Supprimer</a>
+			</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

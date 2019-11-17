@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+  <div class="card-header">{{ beneficiaire.pk }}</div>
+  <div class="card-body">
+    <h5 class="card-title">{{ beneficiaire.nom }}</h5>
+    <p class="card-text">{{ beneficiaire.prenom }}</p>
+    <a href="editer/" class="btn btn-outline-success">Editer</a>
+  </div>
+</div>
+{% endblock %}

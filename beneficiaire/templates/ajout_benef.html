@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>{% block title %}{% endblock %}</title>
+<link href="{% static "css/blog.css" %}" rel="stylesheet">
+</head>
+<body>
+<div id="sidebar">
+<h2>EPS Gest</h2>
+<p>Application de Gestion des EPS.</p>
+</div>
+<div id="content">
+{% block content %}
+<table>
+<thead>
+<tr>
+<td>ID</td><td>Nom</td><td>Prénom</td><td>Actions</td>
+</tr>
+</thead>
+<tbody>
+{% for beneficiaire in beneficiaires %}
+<tr>
+<td>{{ beneficiaire.pk }}</td><td>{{ beneficiaire.nom }}</td><td>{{ beneficiaire.prenom }}</td>
+<td><a href="{{ beneficiaire.pk }}/edit/">Editer</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}
+</div>
+</body>
+</html>
