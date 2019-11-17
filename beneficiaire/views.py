@@ -21,10 +21,10 @@ class DetailBeneficiaire(DetailView):
 
 class CreerBeneficiaire(CreateView):
 	model=Beneficiaire
-	fields=['nom', 'prenom']
+	fields=['nom', 'prenom', 'sexe']
 	success_url="/beneficiaire/"
 
 class UpdateBeneficiaire(UpdateView):
 	model=Beneficiaire
-	fields=['nom', 'prenom']
-	success_url="/beneficiaire"
+	fields=['nom', 'prenom', 'sexe']
+	success_url="/beneficiaire/"

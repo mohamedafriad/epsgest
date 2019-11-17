@@ -16,7 +16,11 @@
   			<span class="badge badge-pill badge-primary">{{ beneficiaire.id }}</span>
   		</h3>
   	</div>
+  	{% if beneficiaire.sexe == 'M' %}
     <img src={% static "beneficiaire/avatar1.jpg" %} class="card-img-top" alt="photo_ben" />
+    {% else %}
+    <img src={% static "beneficiaire/avatarf.png" %} class="card-img-top" alt="photo_ben" />
+    {% endif %}
     <div class="card-footer">
      	<a href="{{ beneficiaire.pk }}/" class="btn btn-outline-primary">Détails</a>
 	 	<a href="{{ beneficiaire.pk }}/editer/" class="btn btn-outline-success">Editer</a>
