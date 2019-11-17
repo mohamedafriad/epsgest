@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic.edit import DeleteView
+from django.views.generic.base import TemplateView
 from beneficiaire.models import Beneficiaire
 from beneficiaire.views import ListBeneficiaire, DetailBeneficiaire, CreerBeneficiaire, UpdateBeneficiaire
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('beneficiaire/', ListBeneficiaire.as_view(), name="list_beneficiaire"),
+    path('', TemplateView.as_view(template_name="accueil.html"), name="accueil"),
+    path('beneficiaire/', ListBeneficiaire.as_view(template_name="list_benef_grid.html"), name="list_beneficiaire"),
+    path('beneficiaire/table/', ListBeneficiaire.as_view(template_name="list_benef_table.html"), name="list_beneficiaire"),
     path('beneficiaire/<int:pk>/', DetailBeneficiaire.as_view(), name="detail_beneficiaire"),
     path('beneficiaire/ajout/', CreerBeneficiaire.as_view(), name="creer_beneficiaire"),
     path('beneficiaire/<int:pk>/editer/', UpdateBeneficiaire.as_view(), name="update_beneficiaire"),
