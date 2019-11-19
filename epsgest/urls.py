@@ -19,6 +19,7 @@ from django.views.generic.edit import DeleteView
 from django.views.generic.base import TemplateView
 from beneficiaire.models import Beneficiaire
 from beneficiaire.views import ListBeneficiaire, DetailBeneficiaire, CreerBeneficiaire, UpdateBeneficiaire
+from projet.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +30,9 @@ urlpatterns = [
     path('beneficiaire/ajout/', CreerBeneficiaire.as_view(), name="creer_beneficiaire"),
     path('beneficiaire/<int:pk>/editer/', UpdateBeneficiaire.as_view(), name="update_beneficiaire"),
     path('beneficiaire/<int:pk>/supprimer/', DeleteView.as_view(model=Beneficiaire, success_url="/beneficiaire/"), name="supprimer_beneficiaire"),
+    path('projet/', ListProjet.as_view(), name="list_projet"),
+    path('projet/<int:pk>/', DetailProjet.as_view(), name="detail_projet"),
+    path('projet/ajout/', CreerProjet.as_view(), name="ajout_projet"),
+    path('projet/<int:pk>/editer/', EditerProjet.as_view(), name="editer_projet"),
+    path('projet/<int:pk>/supprimer/', DeleteProjet.as_view(), name="supprimer_projet"),
 ]

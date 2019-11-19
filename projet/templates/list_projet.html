@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+{% if projets.count %}
+<table class="table table-bordered table-striped">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">ID</th>
+			<th scope="col">Nom</th>
+			<th scope="col">Côut</th>
+			<th scope="col">Durée exécution</th>
+			<th scope="col">Milieu</th>
+			<th scope="col">Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for projet in projets %}
+		<tr>
+			<th scope="row">{{ projet.id }}</th>
+			<td>{{ projet.nom }}</td>
+			<td>{{ projet.cout }}</td>
+			<td>{{ projet.duree }}</td>
+			<td>{{ projet.milieu }}</td>
+			<td>
+				<a href="../projet/{{ projet.id }}/" class="btn btn-outline-primary">Détails</a>
+				<a href="../projet/{{ projet.id }}/editer/" class="btn btn-outline-success">Editer</a>
+				<a href="../projet/{{ projet.pk }}/supprimer/" class="btn btn-outline-danger">Supprimer</a>
+			</td>
+		</tr>
+	{% empty %}
+		<p class="alert alert-danger">
+		Aucun projet dans la base de données. veuillez en ajouter un.
+		</p>
+	{% endfor %}
+	</tbody>
+</table>
+{% else %}
+<p class="alert alert-danger">
+	Aucun projet dans la base de données.veuillez en ajouter un.
+</p>
+{% endif %}
+{% endblock %}
