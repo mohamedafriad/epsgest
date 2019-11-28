@@ -1,6 +1,1 @@
-db.sqlite3
-geckodriver.log
-ghostdriver.log
-__pycache__
-*.pyc
-manage.sublime-workspace
+.vscode
